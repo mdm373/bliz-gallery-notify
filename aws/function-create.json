@@ -1,0 +1,7 @@
+{
+  "FunctionName": "bliz-gallery-notify", 
+  "Runtime": "nodejs8.10", 
+  "Handler": "index.handler", 
+  "Description": "", 
+  "Publish": true
+}

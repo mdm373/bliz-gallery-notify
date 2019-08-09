@@ -1,0 +1,5 @@
+{
+  "Name": "bliz-gallery-notify-rule",
+  "ScheduleExpression": "rate(1 hour)",
+  "Description": "Triggers bliz gallery notify lambda"
+}

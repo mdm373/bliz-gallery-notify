@@ -1,0 +1,6 @@
+{
+  "FunctionName": "bliz-gallery-notify",
+  "StatementId": "bliz-gallery-notify-rule",
+  "Action": "lambda:InvokeFunction",
+  "Principal": "events.amazonaws.com"
+}

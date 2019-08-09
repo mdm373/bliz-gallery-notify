@@ -1,0 +1,1 @@
+aws lambda invoke --function-name bliz-gallery-notify --payload file://./aws/function-payload.json --log-type Tail ./dist/output.txt
