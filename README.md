@@ -1,4 +1,4 @@
-## Blizzard Client Notify
+## Blizzard Gallery Notification
 >A scheduled lambda function to give me a heads up when blizzard has a new gallery item for sale
 
  :heavy_exclamation_mark: ps/something commands in details below are powershell scripts
