@@ -1,7 +1,7 @@
 ## Blizzard Client Notify
 >A scheduled lambda function to give me a heads up when blizzard has a new gallery item for sale
 
- :bangbang: ps/something commands in details below are powershell scripts
+ :heavy_exclamation_mark: ps/something commands in details below are powershell scripts
 ## Set up
 * exec 'npm install'
 * create function: ps/create
