@@ -1,3 +1,5 @@
+Write-Host "Updating Table TTL..."
+aws dynamodb update-time-to-live --table-name bliz-gallery-history --time-to-live-specification `"Enabled=true,AttributeName=ttl`" | Out-Null
 Write-Host "Creating Schedule Rule..."
 $ruleCreateResponse = aws events put-rule --cli-input-json file://./aws/function-schedule-create.json | ConvertFrom-Json
 $ruleArn = $ruleCreateResponse.RuleArn

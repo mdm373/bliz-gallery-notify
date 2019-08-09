@@ -1,8 +1,11 @@
 import archiver from 'archiver'
 import {createWriteStream} from 'fs-extra'
 import {Z_BEST_COMPRESSION} from 'zlib'
+import {copy} from 'fs-extra'
+import {exec} from 'child_process'
+import {default as rimraf} from 'rimraf'
 
-const zipFile = './dist/index.zip'
+const zipFile = './pack/index.zip'
 
 const archiveAssets = async () => {
   const archiveStream = createWriteStream(zipFile)
@@ -20,14 +23,18 @@ const archiveAssets = async () => {
         reject(error)
       }
     })
-    archive.file('./dist/index.js', {name: 'index.js'})
-    archive.file('./dist/index.map', {name: 'index.map'})
+    archive.directory('./pack', false)
     archive.finalize()
   })
 }
 
 (async () => {
   try {
+    console.log('installing prod to pack...')
+    await copy('package.json', './pack/package.json')
+    await copy('dist/lambda', 'pack/lambda')
+    await new Promise((accept) => rimraf('pack/tasks', () => accept()))
+    await new Promise ((accept, reject) => exec('npm install --production', {cwd: './pack'}, (error) => error ? reject() : accept()))
     console.log('creating asset archive...')
     await archiveAssets()
     console.log('done.')

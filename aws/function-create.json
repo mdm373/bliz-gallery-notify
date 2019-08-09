@@ -1,7 +1,9 @@
 {
   "FunctionName": "bliz-gallery-notify", 
   "Runtime": "nodejs8.10", 
-  "Handler": "index.handler", 
+  "Handler": "lambda/index.handler", 
   "Description": "", 
-  "Publish": true
+  "Publish": true,
+  "Timeout": 90,
+  "MemorySize": 256
 }

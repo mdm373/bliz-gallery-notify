@@ -1,0 +1,14 @@
+{
+  "TableName": "bliz-gallery-history", 
+  "AttributeDefinitions": [
+      { "AttributeName": "deviceId",  "AttributeType": "S" },
+      { "AttributeName": "ttl", "AttributeType": "N" }
+  ], 
+  "KeySchema": [
+    { "AttributeName": "deviceId",  "KeyType": "HASH" },
+    { "AttributeName": "ttl",  "KeyType": "RANGE" }
+  ], 
+  "ProvisionedThroughput": { "ReadCapacityUnits": 10, "WriteCapacityUnits": 10 }, 
+  "StreamSpecification": { "StreamEnabled": true,  "StreamViewType": "NEW_IMAGE" }, 
+  "SSESpecification": { "Enabled": true }
+}
