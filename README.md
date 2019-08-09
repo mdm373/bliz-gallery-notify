@@ -9,9 +9,9 @@
     *  role requires `AWSLambdaBasicExecutionRole ` for cloud watch logging
     * role requires `AmazonSNSFullAccess` or equivilent permission for SMS notifications
     * role requires `AmazonDynamoDBFullAccess` or equivilent permissions for dyanmo record keeping
-  * Provide phone number that should recieve SMS notifications when the function detects a gallery update
-    * To modify SMS phone number after creation, change the  `PHONE_NUMBER` environment variable in lambda
-  * Provide any unique value for deviceID to identify instance of running lambda for record keeping
+  * provide phone number that should recieve SMS notifications when the function detects a gallery update
+    * to modify SMS phone number after creation, change the  `PHONE_NUMBER` environment variable in lambda
+  * provide any unique value for deviceID to identify instance of running lambda for record keeping
 * schedule function and record keeping expiration: ps/schedule
   * see `aws/function-schedule-create.json` to modify frequency
 
@@ -22,7 +22,7 @@
 * npm run dev
   * runs tsc in watch mode
   * run `node dist/tasks/test` to test locally
-  * Set Required ENV vars
+  * set Required ENV vars
     * AWS_KEY / AWS_SECRET_KEY : aws credentials
     * PHONE_NUMBER : phone number to text updates to
     * DEVICE_ID : device identifier for record keeping
