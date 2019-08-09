@@ -5,7 +5,7 @@ import {copy} from 'fs-extra'
 import {exec} from 'child_process'
 import {default as rimraf} from 'rimraf'
 
-const zipFile = './pack/index.zip'
+const zipFile = './dist/index.zip'
 
 const archiveAssets = async () => {
   const archiveStream = createWriteStream(zipFile)

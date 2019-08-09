@@ -5,6 +5,7 @@ import {DynamoDB, SNS} from 'aws-sdk'
 
 const oneYearOfSeconds = 60 * 60 * 24 * 360
 const tableName = 'bliz-gallery-history'
+const url = 'https://gear.blizzard.com/us/blizzard-gallery-products'
 
 interface ProductEntry {
   readonly productCount: number
@@ -35,13 +36,14 @@ export const handler = async (_: any) => {
   }
 
   console.log('getting gallery website')
-  const url = 'https://gear.blizzard.com/us/blizzard-gallery-products'
   const html = await requestGet(url)
   const virtualConsole = new VirtualConsole()
+
   console.log('browsing with jsdom')
   const dom = new JSDOM(html, { runScripts: 'dangerously', resources: 'usable', url, virtualConsole})
   await new Promise ( (accept) => dom.window.onload = () => {accept()})
   console.log('window loaded')
+
   const products = dom.window.document.getElementsByClassName('product-card')
   const newProductCount = products.length
   dom.window.close()
