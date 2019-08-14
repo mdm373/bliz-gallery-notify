@@ -22,7 +22,7 @@ const getExistingProductCount = async (deviceId: string) => {
     KeyConditionExpression: 'deviceId = :deviceId',
     ExpressionAttributeValues: {':deviceId': deviceId},
   }).promise()).Items
-  return items && items[0] as ProductEntry || undefined
+  return items && items[items.length - 1] as ProductEntry || undefined
 }
 
 export const handler = async (_: any) => {
